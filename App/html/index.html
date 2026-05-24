@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Dono</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #9a4cff;
+            display: flex;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .container {
+            width: 400px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .mensagem {
+            margin-top: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .erro {
+            color: red;
+        }
+
+        .sucesso {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <h2>Cadastro de Dono</h2>
+
+    <input type="text" id="nome" placeholder="Nome">
+    <input type="email" id="email" placeholder="E-mail">
+    <input type="password" id="senha" placeholder="Senha">
+
+    <button id="btnCadastrar" onclick="cadastrar()">
+        Cadastrar
+    </button>
+
+    <div id="cadastroMensagem" class="mensagem"></div>
+
+</div>
+
+<script>
+
+    function cadastrar() {
+
+        const nome = document.getElementById("nome").value;
+        const email = document.getElementById("email").value;
+        const senha = document.getElementById("senha").value;
+
+        const mensagem = document.getElementById("cadastroMensagem");
+
+        if(nome === "" || email === "" || senha === "") {
+
+            mensagem.className = "mensagem erro";
+            mensagem.innerText = "Campo obrigatório";
+
+        } else {
+
+            mensagem.className = "mensagem sucesso";
+            mensagem.innerText = "Cadastro realizado com sucesso";
+        }
+    }
+
+</script>
+
+</body>
+</html>
